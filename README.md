@@ -1,5 +1,5 @@
 # nuc_ctDNA_process
-ImageJ 1.x macros and Matlab code for processing 3D nuclear classification and quantification
+ImageJ 1.x macros and Matlab code for processing 3D nuclear classification and quantification.  This repo is designed to help you recreate the methods use in the associated publication.  Please don't hesitate to contact if you have questions.  Happy to debug, update, etc if there's need.
 
 ## Lif files:
 
@@ -41,7 +41,7 @@ Drag and drop; click Run and select .lif of interest.  Only 3D data will be incl
   * .bin – a binary mask of the 3D ROI
   * _dims.bin – the dimensions of the binary mask
   * .jpg – a thumbnail of ROI overlays
-  * .mat – parameters used for generating the ROIs
+  * .mat – parameters used for generating the ROIs  (open .mat files, and click on the params variable in the Import Wizard to quickly view the relevant parameters)
     * Use Masks dropdown:
       * For faster re-processing of data with differing minimum number of voxels existing binary masks can be used 
       * Note, resulting .mat file in subsequent output will not reflect the parameters used to generate the binary masks – refer to the original folder (this is noted and will be added to newer versions)
