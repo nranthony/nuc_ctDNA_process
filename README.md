@@ -13,16 +13,14 @@ Drag and drop; click Run and select .lif of interest.  Only 3D data will be incl
 * Place .tif raw data export into subfolder called “raw”
 * Create subfolders “ilastik output” and “roi”
 * Ilastik (version 1.3.2post1) trained with ~10-20% of datasets
+  * Ilastik side note: currently don't know how to share Ilastik projects without getting errors on loading for the given files and filepaths present during creation. You will need to train your own models.  See NoPhotonLeftBehind for Ilastik series that includes training tips and details of features used for these data. https://www.youtube.com/channel/UCRVa5DSphB5gHMaFKPgyKSQ
 * Models trained as Pixel Classifications – two classes, background and nucleus
-* TODO: get features 
 * Ilsatik model trained to classify nuclear vs non nuclear – classical thresholding methods found to be less effective due to varying amounts on cytoplasmic DNA stain present. 
 * Single match and mismatch trained using nuclear channel only; double mismatch trained using nuclear and DIC channels together
 * Data separated and models trained for each cell type due to distinct morphologies, e.g. MM1S model, HCT116 model, etc etc
-* Running ilastik
 * Probability density files
-  * Matlab looks for “*_nrmNuc.tiff“ in relative folder “.\ilastik output”
-  * In ilastik, set output format to multipage tiff, and select path to .\{nickname}_nrmNuc.tiff
-  * {nickname}_nrmNuc.tiff, Note .tiff not .tif
+  * Matlab looks for “*_nrmNuc.tiff“ in relative folder “.\ilastik output”, and this is the ended added in the Fiji macro
+  * In ilastik, set output format to multipage tiff, and select path to .\{nickname}.tiff.  Note, use path of .\{nickname}_nrmNuc.tiff if _nrmNuc is not added during your file collation and logistics to this point.  Also note .tiff not .tif
   * Leave image export settings as default; shape here is, for example, 16, 512, 512, 1, with axis order zyxc and data type float32
   * In Batch Processing section, select all of the .h5 or .tif files in the “nuc” folder and Process all files
 * Matlab UI
@@ -46,7 +44,7 @@ Drag and drop; click Run and select .lif of interest.  Only 3D data will be incl
   * .mat – parameters used for generating the ROIs
     * Use Masks dropdown:
       * For faster re-processing of data with differing minimum number of voxels existing binary masks can be used 
-      * Note, resulting .mat file in subsequent output will not reflect the parameters used to generate the binary masks – refer to the original folder
+      * Note, resulting .mat file in subsequent output will not reflect the parameters used to generate the binary masks – refer to the original folder (this is noted and will be added to newer versions)
     * 
   * Processing tab:
     * FFT % is the amount of Fourier space to keep; lower values retain low frequencies only – empirically determined for best resulting nuclear shape
