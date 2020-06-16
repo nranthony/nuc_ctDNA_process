@@ -3,9 +3,9 @@ ImageJ 1.x macros and Matlab code for processing 3D nuclear classification and q
 
 ## Lif files:
 
-Use ImageJ 1.x macro in fiji folder to process lif file. Macro to process lif files for subsequent ilastik and Matlab processing. Works with 3 channel data (DAPI, DIC, Rh-Red-X) and 4 channel data (DAPI, Cy5, Rh-Red-X, DIC). Generates .h5 or .tif files for ilastik raining, .jpgs for visualization and ROI overlays, and raw tif files for Matlab analysis.
+Use ImageJ 1.x macro in fiji folder to process lif files for subsequent ilastik and Matlab processing. Works with 3 channel data (DAPI, DIC, Rh-Red-X) and 4 channel data (DAPI, Cy5, Rh-Red-X, DIC). Generates .h5 or .tif files for ilastik raining, .jpgs for visualization and ROI overlays, and raw tif files for Matlab analysis.
 ### Macro Usage
-Drag and drop; click Run and select .lif of interest.  Only 3D data will be included, single layer images will be noted in output.  A table of dimensions and max intensities is also created.  Save .csv image info, and .txt output log if required.
+Drag and drop; click Run and select .lif of interest.  Only 3D data will be included, single layer images will be noted in output.  A table of dimensions and max intensities is also created.  Save .csv image info, and .txt output log for reference.
 
 ### Organize Folder Structure
 ![Folder Structure](/images/folders.png)
@@ -19,7 +19,7 @@ Drag and drop; click Run and select .lif of interest.  Only 3D data will be incl
 * Single match and mismatch trained using nuclear channel only; double mismatch trained using nuclear and DIC channels together
 * Data separated and models trained for each cell type due to distinct morphologies, e.g. MM1S model, HCT116 model, etc etc
 * Probability density files
-  * Matlab looks for “*_nrmNuc.tiff“ in relative folder “.\ilastik output”, and this is the ended added in the Fiji macro
+  * Matlab looks for “*_nrmNuc.tiff“ in relative folder “.\ilastik output”, and this is the suffix added in the Fiji macro
   * In ilastik, set output format to multipage tiff, and select path to .\{nickname}.tiff.  Note, use path of .\{nickname}_nrmNuc.tiff if _nrmNuc is not added during your file collation and logistics to this point.  Also note .tiff not .tif
   * Leave image export settings as default; shape here is, for example, 16, 512, 512, 1, with axis order zyxc and data type float32
   * In Batch Processing section, select all of the .h5 or .tif files in the “nuc” folder and Process all files
@@ -28,7 +28,7 @@ Drag and drop; click Run and select .lif of interest.  Only 3D data will be incl
     * Set Root – select folder containing “ilastik output”, “raw”, “roi”, and “nuc” 
     * Filename list will propagate, and Overview text at the top will highlight red if the correct number of files are not present in all folders.  (TODO: - run test on error scenario to get instructions)
     * Sig Num Chns – the total number of channels in the raw data tif files
-    * Rh/Cy5 Sig Chn – the 1 to N based index of the channels to measure inside the nucleus
+    * Rh/Cy5 Sig Chn – the 1 to N based index of the channel to measure inside the nucleus
     * Rh/Cy5 Bkgd – the number of counts considered as background/cell autoflourescene/non-specific signal during measurements; only voxels with counts above this level will be included in the measurements
     * ROI Num Chns – total number of channels in the ilastik probability density tiff files
     * ROI Chn – 1 to N based index of channel to use for generating nuclear 3D ROIs
